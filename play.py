@@ -29,10 +29,10 @@ class Play:
        A year the play was written. Default to None.
     """
 
-    def __init__(self, corpus, id_, title, author,
+    def __init__(self, corpus, name, title, author,
                  print_year=None, written_year=None):
         self.corpus = corpus
-        self.id_ = id_
+        self.name = name
         self.title = title
         self.author = author
         self.print_year = print_year
@@ -43,7 +43,7 @@ class Play:
         """
         A play's URL for API requests.
         """
-        return f'{self.corpus.url}/play/{self.id_}'
+        return f'{self.corpus.url}/play/{self.name}'
 
     @property
     @lru_cache()
@@ -73,8 +73,3 @@ class Play:
         """
         stage_url = f'{self.url}/stage-directions'
         return requests.get(stage_url).text
-
-    def __str__(self):
-        return '{} {}'.format(self.id_, self.title)
-
-    __repr__ = __str__
