@@ -19,5 +19,5 @@ for play in ruscor.plays:
 
 for author, plays in plays_to_analyse.items():
     for play in plays:
-        with open(os.path.join('corpus', play.name + '.txt'), 'w', encoding='utf-8') as f:
+        with open(os.path.join('stage_texts', 'corpus', play.name + '.txt'), 'w', encoding='utf-8') as f:
             print(play.stage_text, file=f)

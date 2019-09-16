@@ -52,17 +52,22 @@ class Play:
         All characters (see Character class documentation) in the play.
         """
 
-        characters = {}
+        temp = {}
         cast_url = f'{self.url}/cast'
         cast = requests.get(cast_url).json()
         for elem in cast:
-            characters[elem['id']] = Character(elem['id'], elem['name'],
+            temp[elem['id']] = Character(elem['id'], elem['name'],
                                                elem['gender'], int(elem['numOfWords']))
 
         spoken_text_url = f'{self.url}/spoken-text-by-character'
         all_spoken_text = requests.get(spoken_text_url).json()
         for text in all_spoken_text:
-            characters[text['id']].spoken_text = text['text']
+            temp[text['id']].spoken_text = text['text']
+        
+        characters = []
+        for id_, character in temp.items():
+            characters.append(character)
+
         return characters
 
     @property
