@@ -22,20 +22,20 @@ class Play:
     author : str
        A play's author.
     
-    print_year : int
-       A year the play was printed for a first time. Default to None.
+    printed_year : int
+       A year the play was printed for a first time. None if unknown.
     
-    writte_year : int
-       A year the play was written. Default to None.
+    written_year : int
+       A year the play was written. None if unknown.
     """
 
     def __init__(self, corpus, name, title, author,
-                 print_year=None, written_year=None):
+                 printed_year=None, written_year=None):
         self.corpus = corpus
         self.name = name
         self.title = title
         self.author = author
-        self.print_year = print_year
+        self.printed_year = printed_year
         self.written_year = written_year
 
     @property

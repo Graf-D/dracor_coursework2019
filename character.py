@@ -11,7 +11,7 @@ class Character:
        A character's name.
     
     gender : str
-       A character's gender. Default to None.
+       A character's gender. None if unknown.
     
     num_of_words : int
        A number of words character said in the play. Default to 0.
