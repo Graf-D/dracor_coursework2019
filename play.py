@@ -30,13 +30,17 @@ class Play:
     """
 
     def __init__(self, corpus, name, title, author,
-                 printed_year=None, written_year=None):
+                 printed_year=None, written_year=None, normalized_year=None):
         self.corpus = corpus
         self.name = name
         self.title = title
         self.author = author
-        self.printed_year = printed_year
-        self.written_year = written_year
+        if printed_year is not None:
+            self.printed_year = int(printed_year)
+        if written_year is not None:
+            self.written_year = int(written_year)
+        if normalized_year is not None:
+            self.normalized_year = int(normalized_year)
 
     @property
     def url(self):

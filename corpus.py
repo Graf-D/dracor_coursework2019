@@ -47,6 +47,6 @@ class Corpus:
         plays = []
         for drama in corpus_content['dramas']:
             plays.append(Play(self, drama['name'], drama['title'], drama['author']['name'],
-                              drama['printYear'], drama['writtenYear']))
+                              drama['printYear'], drama['writtenYear'], drama['yearNormalized']))
 
         return plays
