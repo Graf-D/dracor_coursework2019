@@ -46,7 +46,11 @@ class Corpus:
 
         plays = []
         for drama in corpus_content['dramas']:
+            printed_year = drama['printYear'] and int(drama['printYear'])
+            written_year = drama['writtenYear'] and int(drama['writtenYear'])
+            normalized_year = drama['yearNormalized'] and int(drama['yearNormalized'])
+    
             plays.append(Play(self, drama['name'], drama['title'], drama['author']['name'],
-                              drama['printYear'], drama['writtenYear'], drama['yearNormalized']))
+                              printed_year, written_year, normalized_year))
 
         return plays

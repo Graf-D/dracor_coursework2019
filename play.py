@@ -35,12 +35,9 @@ class Play:
         self.name = name
         self.title = title
         self.author = author
-        if printed_year is not None:
-            self.printed_year = int(printed_year)
-        if written_year is not None:
-            self.written_year = int(written_year)
-        if normalized_year is not None:
-            self.normalized_year = int(normalized_year)
+        self.printed_year = printed_year
+        self.written_year = written_year
+        self.normalized_year = normalized_year
 
     @property
     def url(self):
